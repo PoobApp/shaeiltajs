@@ -36,6 +36,8 @@ var model = {
         
         if(isGlobal)
             globalPool = server;
+            
+        return server;
     },
     getSevrer : function (serverName)
     {
