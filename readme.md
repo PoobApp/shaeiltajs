@@ -31,7 +31,7 @@ psql.query('select 1 as test',function(err,data)
 })
 ```
 
-## Using pool fro another file
+## Using pool from another file
 * Need to add server naming to readme
 ```
 var server = shaeilta.getSevrer('serverName')
