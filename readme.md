@@ -1,6 +1,6 @@
 # Shailta.JS
-## Node.js warper for mysql Coection managing and singale toning.
-### By Dor Shay (Poob)
+### Node.js warper for mysql Coection managing and singale toning.
+By Dor Shay (Poob)
 
 ## Initalize:
 ```
@@ -32,9 +32,11 @@ psql.query('select 1 as test',function(err,data)
 ```
 
 ## Using pool fro another file
-* Need to add server naming to reamme
+* Need to add server naming to readme
 ```
 var server = shaeilta.getSevrer('serverName')
 // Or get server defiend as global
 var server = shaeilta.getGlobalSevrer()
 ```
+
+dor@poob.me
