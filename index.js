@@ -46,7 +46,7 @@ var model = {
         if(!selectedPool)
             throw {error:'No such connection'}
         
-        this.selectedPool = selectedPool;
+        return selectedPool;
     },
     getGlobalSevrer : function ()
     {
@@ -55,7 +55,7 @@ var model = {
         if(!selectedPool)
             throw {error:'No such connection'}
         
-        this.selectedPool = selectedPool;
+        return selectedPool;
     }
 }
 module.exports = model;
