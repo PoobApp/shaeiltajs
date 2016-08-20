@@ -11,10 +11,10 @@ var model = {
             pool : sql.createPool(configData),
             sqlPath : sqlPath ? sqlPath.toString() + '/' : '',
             fileQuery : function(path,data,cb){
-                if(cb)
-                    this.doQuery(path,[],cb)
-                else
+                if(!!cb)
                     this.doQuery(path,data,cb)
+                else
+                    this.doQuery(path,[],cb)
             },
             doQuery : function(path,data,cb){
                 var that = this;
