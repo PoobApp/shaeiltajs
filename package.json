@@ -1,6 +1,6 @@
 {
   "name": "shaeiltajs",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "",
   "keywords": ["mysql","singletone","pool","sqlfile",".sql","query","shaeilta","poob"],
   "main": "index.js",
