@@ -1,7 +1,8 @@
 {
   "name": "shaeiltajs",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "",
+  "keywords": ["mysql","singletone","pool","sqlfile",".sql","query","shaeilta","poob"]
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
