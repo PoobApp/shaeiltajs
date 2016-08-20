@@ -9,7 +9,7 @@ var model = {
         configData.multipleStatements =  true
         var server = {
             pool : sql.createPool(configData),
-            sqlPath : sqlPath.toString() + '/',
+            sqlPath : sqlPath ? sqlPath.toString() + '/' : '',
             fileQuery : function(path,data,cb){
                 if(cb)
                     this.doQuery(path,[],cb)
@@ -18,7 +18,7 @@ var model = {
             },
             doQuery : function(path,data,cb){
                 var that = this;
-                var filePath = path.charAt(0)!='%' ? this.sqlPath + path : path;
+                var filePath = path.charAt(0)!='%' ? this.sqlPath + path : path.substr(1,path.length);
                 
                 fs.readFile(filePath,"utf-8",function(err,sqls)
                 {
@@ -31,7 +31,7 @@ var model = {
             }
         };
         
-        var conName = configData.Name || configData.host.replace(/\./g,'_') + '_' + configData.database + '_' + configData.user
+        var conName = configData.name || configData.host.replace(/\./g,'_') + '_' + configData.database + '_' + configData.user
         pools[conName] = server;
         
         if(isGlobal)
