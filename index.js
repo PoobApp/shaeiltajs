@@ -43,7 +43,7 @@ var model = {
                 function sqlDone(err,results) {
                   deferred.resolve(results);
 
-                  if(z) z();
+                  if(z) z(err,results);
                 }
                 
                 return deferred.promise;
