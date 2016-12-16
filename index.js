@@ -3,6 +3,8 @@ var fs = require('fs');
 var pools = {};
 var globalPool = {};
 var q = require('q');
+var handlebars = require('handlebars');
+var mapObjectRecursive = require('map-object-recursive');
 
 var model = {
     addServer : function (configData,sqlPath,isGlobal)
@@ -31,6 +33,18 @@ var model = {
                         deferred.resolve(results);
                       }
                     }
+
+                    if(Object.prototype.toString.call( someVar ) === '[object Array]') {
+                      sqls = sqls.toString()
+                    } else {
+                      template = Handlebars.compile(sqls.toString())
+                      mapObjectRecursive(data,function (key, value, object) {
+                        return [key, that.pool.escape(value) ];
+                      })
+                      sqls  = template(data)
+                      data = []
+                    }
+
                     that.pool.query(sqls.toString(),data,cb)
                 })
                 console.log(deferred)
@@ -45,7 +59,7 @@ var model = {
 
                   if(z) z(err,results);
                 }
-                
+
                 return deferred.promise;
             }
         };

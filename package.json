@@ -1,6 +1,6 @@
 {
   "name": "shaeiltajs",
-  "version": "0.9.9",
+  "version": "0.1.1",
   "description": "",
   "keywords": [
     "mysql",
@@ -23,6 +23,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "handlebars": "^4.0.6",
+    "map-object-recursive": "0.0.1",
     "mysql": "^2.11.1",
     "q": "^1.4.1"
   }
