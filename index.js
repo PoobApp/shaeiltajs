@@ -34,11 +34,11 @@ var model = {
                       }
                     }
 
-                    if(Object.prototype.toString.call( someVar ) === '[object Array]') {
+                    if(Object.prototype.toString.call( data ) === '[object Array]') {
                       sqls = sqls.toString()
                     } else {
                       try {
-                        template = Handlebars.compile(sqls.toString())
+                        var template = Handlebars.compile(sqls.toString())
                         mapObjectRecursive(data,function (key, value, object) {
                           return [key, that.pool.escape(value) ];
                         })
