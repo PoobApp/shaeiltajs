@@ -14,7 +14,7 @@ var model = {
             pool : sql.createPool(configData),
             sqlPath : sqlPath ? sqlPath.toString() + '/' : '',
             fileQuery : function(path,data,cb){
-                if(!!cb)
+                if(!!data)
                     return this.doQuery(path,data,cb)
                 else
                     return this.doQuery(path,[],cb)
@@ -30,6 +30,7 @@ var model = {
 
                     if(!cb) {
                       cb = (err,results) => {
+                        if(err) return deferred.reject(err)
                         deferred.resolve(results);
                       }
                     }
@@ -58,8 +59,10 @@ var model = {
                 this.pool.query(x,y,sqlDone);
 
                 function sqlDone(err,results) {
-                  deferred.resolve(results);
-
+                  if(err)
+                    deferred.reject(err)
+                  else
+                    deferred.resolve(results)
                   if(z) z(err,results);
                 }
 
